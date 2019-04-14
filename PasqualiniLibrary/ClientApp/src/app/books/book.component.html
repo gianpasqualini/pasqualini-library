@@ -1,0 +1,49 @@
+<h1>Pasqualini Library</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+<p *ngIf="!books"><em>Loading...</em></p>
+
+<div *ngIf="!editing">
+
+  <button type="button" class="btn btn-primary btn-lg" (click)="edit(null)"> Add Book </button>
+  <table class='table' *ngIf="books">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of books">
+        <td>{{ book.title }}</td>
+        <td>{{ book.author }}</td>
+        <td>{{ book.quantity }}</td>
+        <td><button type="button" class="btn btn-outline-primary" (click)="edit(book)"> edit </button></td>
+        <td><button type="button" class="btn btn-outline-primary" (click)="delete(book.id)"> delete </button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf ="editing"  >
+  <div class="form-group">
+    <label for="bookTitle">Title</label>
+    <input type="text" [(ngModel)]="currentBook.title" class="form-control" id="bookTitle" aria-describedby="bookTitleHelp" placeholder="Enter Book Title">
+    <small id="bookTitleHelp" class="form-text text-muted">The Greater text in the cover of the book :)</small>
+  </div>
+  <div class="form-group">
+    <label for="bookAuthor">Author</label>
+    <input type="text" [(ngModel)]="currentBook.author" class="form-control" id="bookAuthor" aria-describedby="bookAuthorHelp" placeholder="Enter Book Author">
+    <small id="bookAuthorHelp" class="form-text text-muted">The name of the person who wrote the book</small>
+  </div>
+  <div class="form-group">
+    <label for="bookQuantity">Quantity</label>
+    <input type="number" [(ngModel)]="currentBook.quantity" class="form-control" id="bookQuantity" aria-describedby="bookQuantityHelp" placeholder="Enter Book Quantity">
+    <small id="bookQuantityHelp" class="form-text text-muted">The ammount of this book in the library </small>
+  </div>
+
+  <button type="button" class="btn btn-primary" (click)="save()">Save</button>
+  <button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
+</div>
