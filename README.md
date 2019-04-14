@@ -22,6 +22,10 @@ para deixar as coisas rodando.
 * Deve ter o SQLServer Express instalado
 * Acredito que a migração da base acontecerá normalmente, caso não digite no command do NuGet: update-database
 
+### Desafio do Torneio de pedra, papel ou tesoura
 
+A lógica está implementada no proprio projeto PasqualiniLibrary, no folder games.
+Os testes estão na classe RockPaperScissorsTest do projeto de testes XUnitTestProject
+O framework de testes utilizado foi o XUnit
 
 
